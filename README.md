@@ -1,12 +1,13 @@
 - Form Builder
 - Output `postForm` value using `json` pipe and observe changes
-- ngSubmit, reset
-- valueChanges to observe content input value and display number of 
+- NgSubmit, reset
+- ValueChanges to observe content input value and display number of 
 symbols remaining next to input
 - Observe how input classes are added dynamically
 - Custom form validator, display error in template
-- submit form to backend json server
-- add async validator
+- aubmit form to backend json server
+- Add async validator, Register uniqueTitle validator as async validator on title formControl,Add error message when title is not unique
+
 
 # Ita23
 
