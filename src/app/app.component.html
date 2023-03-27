@@ -1,0 +1,62 @@
+<form
+  [formGroup]="postForm"
+  (ngSubmit)="onPostFormSubmit()"
+  (reset)="onPostFormReset()"
+>
+  <fieldset>
+    <legend>Post</legend>
+
+    <div>
+      <label for="author">Author</label>
+      <br />
+      <input type="text" formControlName="author" id="author" />
+      <ul *ngIf="author.errors && author.touched">
+        <li *ngIf="author.errors['required']">Author is required</li>
+        <li *ngIf="author.errors['isNotEvelina']">
+          Author must not be 'Evelina'
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <label for="title">Title</label>
+      <br />
+      <input type="text" formControlName="title" id="title" />
+      <ul *ngIf="title.errors && title.touched">
+        <li *ngIf="title.errors['required']">Title is required</li>
+        <li *ngIf="title.errors['minlength']">
+          Title must be at least 5 characters long
+        </li>
+
+       <li *ngIf="title.errors['uniqueTitle']">
+          Title must be unique. This title is already taken.
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <label for="content">
+        Content ({{ contentLengthRemaining$ | async }}/{{ contentMaxLength }})
+      </label>
+      <br />
+      <textarea formControlName="content" id="content"></textarea>
+      <div *ngIf="content.errors && content.touched">
+        <div *ngIf="content.errors['required']">Content is required</div>
+        <div *ngIf="content.errors['minlength']">
+          Content must be at least 10 characters long
+        </div>
+        <div *ngIf="content.errors['maxlength']">
+          Content must be shorter than 50 characters
+        </div>
+        <li *ngIf="content.errors['appropriateLanguage']">
+          Content must use appropriate language (no swear words).
+        </li>
+
+      </div>
+    </div>
+  </fieldset>
+
+  <button type="submit">Save</button>
+  <button type="reset">Reset</button>
+</form>
+{{ postForm.value | json }}
