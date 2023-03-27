@@ -1,3 +1,13 @@
+- Form Builder
+- Output `postForm` value using `json` pipe and observe changes
+- ngSubmit, reset
+- valueChanges to observe content input value and display number of 
+symbols remaining next to input
+- Observe how input classes are added dynamically
+- Custom form validator, display error in template
+- submit form to backend json server
+- add async validator
+
 # Ita23
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
